@@ -34,7 +34,6 @@ const newComment = (newComment, eventId) => {
   const event = events.value.find((event) => event.id == eventId)
   event.comments = event.comments || []
   event.comments = [newComment, ...event.comments]
-  console.log(event.comments)
 }
 
 const loadMore = () => {

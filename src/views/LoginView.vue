@@ -1,7 +1,6 @@
 <script setup>
 import BaseInput from '@/components/BaseInput.vue'
 import BaseInputError from '@/components/BaseInputError.vue'
-import LoadingIcon from '@/components/LoadingIcon.vue'
 import PrimaryButton from '@/components/PrimaryButton.vue'
 import { useAuthStore } from '@/stores/auth'
 import { ChevronRightIcon } from '@heroicons/vue/24/outline'

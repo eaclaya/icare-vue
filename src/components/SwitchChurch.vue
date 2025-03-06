@@ -28,7 +28,6 @@ const selectChurch = async (event) => {
 onMounted(async () => {
   if (localStorage.getItem('churches')) {
     churches.value = JSON.parse(localStorage.getItem('churches'))
-    console.log(churches.value)
   } else {
     const response = await axios.get('/user')
     const { user } = response.data
