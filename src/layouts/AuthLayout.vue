@@ -3,6 +3,11 @@
     <main class="main-content flex flex-col">
       <div class="flex justify-between">
         <SwitchTheme />
+        <router-link to="/profile">
+          <button class="p-2 cursor-pointer">
+            <UserCircleIcon class="w-6 h-6" />
+          </button>
+        </router-link>
       </div>
       <slot />
     </main>
@@ -27,6 +32,7 @@
 
 <script setup>
 import SwitchTheme from '@/components/SwitchTheme.vue'
+import { UserCircleIcon } from '@heroicons/vue/24/outline'
 </script>
 <style>
 body {

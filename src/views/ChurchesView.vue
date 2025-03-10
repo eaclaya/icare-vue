@@ -23,6 +23,7 @@ const columns = [
   { key: 'lng', label: 'Lng' },
   { key: 'families_count', label: 'Families' },
   { key: 'members_count', label: 'Members' },
+  { key: 'actions', label: 'Actions' },
 ]
 
 const fetchData = async () => {
@@ -137,13 +138,22 @@ const previousPage = () => {
         <template v-else>
           <tr v-for="row in data" :key="row.id" class="border-b">
             <td class="p-2">{{ row.name }}</td>
-            <td class="p-2">{{ row.city }}</td>
-            <td class="p-2">{{ row.state }}</td>
-            <td class="p-2">{{ row.zip }}</td>
-            <td class="p-2">{{ row.location[0] ?? 0 }}</td>
-            <td class="p-2">{{ row.location[1] ?? 0 }}</td>
+            <td class="p-2">{{ row.location.city }}</td>
+            <td class="p-2">{{ row.location.state }}</td>
+            <td class="p-2">{{ row.location.zip }}</td>
+            <td class="p-2">{{ row.location.lat }}</td>
+            <td class="p-2">{{ row.location.lng }}</td>
             <td class="p-2">{{ row.families_count }}</td>
             <td class="p-2">{{ row.members_count }}</td>
+            <td class="p-2">
+              <template v-if="row.actions.length > 0">
+                <select>
+                  <option v-for="action in row.actions" :value="action.id" :key="action.id">
+                    {{ action.label }}
+                  </option>
+                </select>
+              </template>
+            </td>
           </tr>
         </template>
       </tbody>

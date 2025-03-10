@@ -26,11 +26,11 @@ const submit = async () => {
 </script>
 
 <template>
-  <section class="flex flex-col items-center justify-center h-screen">
+  <section class="flex flex-col items-center justify-center h-screen w-full">
     <p class="text-red-500" v-show="auth.errors.message">{{ auth.errors.message }}</p>
     <form
       @submit.prevent="submit"
-      class="w-full min-w-md p-8 rounded-md shadow-md flex flex-col gap-4"
+      class="w-full max-w-md p-8 rounded-md shadow-md flex flex-col gap-4"
     >
       <div class="relative w-full">
         <label>Email</label>

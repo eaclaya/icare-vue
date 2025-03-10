@@ -13,5 +13,5 @@ import Cookies from 'js-cookie'
 
 const auth = useAuthStore()
 const cookie = Cookies.get('XSRF-TOKEN')
-const layoutComponent = computed(() => (auth.user?.id || cookie ? AuthLayout : GuestLayout))
+const layoutComponent = computed(() => (cookie ? AuthLayout : GuestLayout))
 </script>
