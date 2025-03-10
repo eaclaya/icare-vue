@@ -21,7 +21,6 @@ const columns = [
   { key: 'zip', label: 'ZIP' },
   { key: 'lat', label: 'Lat' },
   { key: 'lng', label: 'Lng' },
-  { key: 'families_count', label: 'Families' },
   { key: 'members_count', label: 'Members' },
   { key: 'actions', label: 'Actions' },
 ]
@@ -29,7 +28,7 @@ const columns = [
 const fetchData = async () => {
   try {
     loading.value = true
-    const response = await axios.get('/churches', {
+    const response = await axios.get('/communities', {
       params: {
         q: searchQuery.value,
         sort: sortKey.value,
@@ -144,7 +143,6 @@ const previousPage = () => {
             <td class="p-2">{{ row.location.zip }}</td>
             <td class="p-2">{{ row.location.lat }}</td>
             <td class="p-2">{{ row.location.lng }}</td>
-            <td class="p-2">{{ row.families_count }}</td>
             <td class="p-2">{{ row.members_count }}</td>
             <td class="p-2">
               <template v-if="row.actions.length > 0">

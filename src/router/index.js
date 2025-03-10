@@ -32,6 +32,11 @@ const router = createRouter({
       component: () => import('@/views/MembersView.vue'),
     },
     {
+      path: '/communities',
+      name: 'communities',
+      component: () => import('@/views/CommunitiesView.vue'),
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: () => import('@/views/ProfileView.vue'),

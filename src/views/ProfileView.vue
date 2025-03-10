@@ -1,3 +1,16 @@
+<script setup>
+import { ref } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import PermissionTree from '@/components/PermissionTree.vue'
+import PrimaryButton from '@/components/PrimaryButton.vue'
+const auth = useAuthStore()
+const navigation = ref([
+  { id: 'account', name: 'Accounts' },
+  { id: 'permissions', name: 'Permissions' },
+])
+
+const activeTab = ref('account')
+</script>
 <template>
   <div class="xl:pl-72">
     <h1 class="sr-only">Account Settings</h1>
@@ -9,18 +22,26 @@
           role="list"
           class="flex min-w-full flex-none gap-x-6 px-4 text-sm/6 font-semibold text-gray-400 sm:px-6 lg:px-8"
         >
-          <li v-for="item in navigation" :key="item.name">
-            <a :href="item.href" :class="item.current ? 'text-indigo-400' : ''">{{ item.name }}</a>
+          <li v-for="item in navigation" :key="item.id">
+            <button
+              type="button"
+              @click="activeTab = item.id"
+              class="cursor-pointer"
+              :class="item.id === activeTab ? 'text-green-600' : ''"
+            >
+              {{ item.name }}
+            </button>
           </li>
         </ul>
       </nav>
     </div>
+
     <!-- Permissions tab -->
-    <div id="permissions" class="hidden target:block divide-y divide-white/5">
+    <div id="permissions" class="divide-y divide-white/5" v-show="activeTab === 'permissions'">
       <PermissionTree />
     </div>
     <!-- Settings forms -->
-    <div id="account" class="hidden target:block divide-y divide-white/5">
+    <div id="account" class="divide-y divide-white/5" v-show="activeTab === 'account'">
       <div
         class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8"
       >
@@ -243,18 +264,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ChevronDownIcon } from '@heroicons/vue/16/solid'
-import PrimaryButton from '@/components/PrimaryButton.vue'
-import PermissionTree from '@/components/PermissionTree.vue'
-import { useAuthStore } from '@/stores/auth'
-
-const navigation = [
-  { name: 'Account', href: '#account', current: true },
-  { name: 'Permissions', href: '#permissions', current: false },
-  { name: 'Teams', href: '#teams', current: false },
-]
-
-const auth = useAuthStore()
-</script>

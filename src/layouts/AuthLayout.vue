@@ -23,8 +23,8 @@
       <router-link to="/churches" class="flex flex-1 justify-center">
         <button type="button" class="py-4">Churches</button>
       </router-link>
-      <router-link to="/members" class="flex flex-1 justify-center">
-        <button type="button" class="py-4">Members</button>
+      <router-link to="/communities" class="flex flex-1 justify-center">
+        <button type="button" class="py-4">Communities</button>
       </router-link>
     </nav>
   </div>

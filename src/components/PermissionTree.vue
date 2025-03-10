@@ -12,7 +12,6 @@ const axios = inject('axios') // Inject axios instance
 const fetchPermissions = async () => {
   try {
     const response = await axios.get('/member-permissions') // Replace with your API endpoint
-    console.log(response.data)
     permissions.value = response.data
   } catch (error) {
     console.error('Error fetching permissions:', error)
@@ -50,7 +49,7 @@ const isSubSectionOpen = (subSectionName) => {
 const savePermissions = async () => {
   try {
     const response = await axios.post('/member-permissions', { permissions: permissions.value })
-    console.log('Permissions saved:', response.data)
+    alert('Permissions saved successfully!')
   } catch (error) {
     console.error('Error saving permissions:', error)
   }
