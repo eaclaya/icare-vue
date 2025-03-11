@@ -1,5 +1,7 @@
 import { inject, ref } from 'vue'
 import { defineStore } from 'pinia'
+import Cookies from 'js-cookie'
+import router from '@/router'
 
 export const useAuthStore = defineStore(
   'auth',
@@ -33,7 +35,13 @@ export const useAuthStore = defineStore(
       }
     }
 
-    return { user, login, loading, errors }
+    const logout = async () => {
+      Cookies.remove('XSRF-TOKEN')
+      user.value = {}
+      router.push('/login')
+    }
+
+    return { user, login, loading, errors, logout }
   },
   {
     persist: true,

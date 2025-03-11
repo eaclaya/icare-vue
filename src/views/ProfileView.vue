@@ -46,7 +46,7 @@ const activeTab = ref('account')
         class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8"
       >
         <div>
-          <h2 class="text-base/7 font-semibold text-white">Personal Information</h2>
+          <h2 class="text-base/7 font-semibold">Personal Information</h2>
           <p class="mt-1 text-sm/6 text-gray-400">
             Use a permanent address where you can receive mail.
           </p>
@@ -67,9 +67,7 @@ const activeTab = ref('account')
             </div>
 
             <div class="sm:col-span-3">
-              <label for="first-name" class="block text-sm/6 font-medium text-white"
-                >First name</label
-              >
+              <label for="first-name" class="block text-sm/6 font-medium">First name</label>
               <div class="mt-2">
                 <input
                   type="text"
@@ -77,30 +75,26 @@ const activeTab = ref('account')
                   v-model="auth.user.name"
                   id="first-name"
                   autocomplete="given-name"
-                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base outline-1 -outline-offset-1 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-green-500 sm:text-sm/6"
                 />
               </div>
             </div>
 
             <div class="sm:col-span-3">
-              <label for="last-name" class="block text-sm/6 font-medium text-white"
-                >Last name</label
-              >
+              <label for="last-name" class="block text-sm/6 font-medium">Last name</label>
               <div class="mt-2">
                 <input
                   type="text"
                   name="last-name"
                   id="last-name"
                   autocomplete="family-name"
-                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base outline-1 -outline-offset-1 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-green-500 sm:text-sm/6"
                 />
               </div>
             </div>
 
             <div class="col-span-full">
-              <label for="email" class="block text-sm/6 font-medium text-white"
-                >Email address</label
-              >
+              <label for="email" class="block text-sm/6 font-medium">Email address</label>
               <div class="mt-2">
                 <input
                   id="email"
@@ -108,23 +102,23 @@ const activeTab = ref('account')
                   type="email"
                   autocomplete="email"
                   v-model="auth.user.email"
-                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base outline-1 -outline-offset-1 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-green-500 sm:text-sm/6"
                 />
               </div>
             </div>
 
             <div class="col-span-full">
-              <label for="username" class="block text-sm/6 font-medium text-white">Username</label>
+              <label for="username" class="block text-sm/6 font-medium">Username</label>
               <div class="mt-2">
                 <div
-                  class="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500"
+                  class="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-green-500"
                 >
                   <input
                     type="text"
                     name="username"
                     v-model="auth.user.email"
                     id="username"
-                    class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
+                    class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
                     placeholder="janesmith"
                   />
                 </div>
@@ -132,12 +126,12 @@ const activeTab = ref('account')
             </div>
 
             <div class="col-span-full">
-              <label for="timezone" class="block text-sm/6 font-medium text-white">Timezone</label>
+              <label for="timezone" class="block text-sm/6 font-medium">Timezone</label>
               <div class="mt-2 grid grid-cols-1">
                 <select
                   id="timezone"
                   name="timezone"
-                  class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-white outline-1 -outline-offset-1 outline-white/10 *:bg-gray-800 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                  class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base outline-1 -outline-offset-1 *:bg-gray-800 focus:outline-2 focus:-outline-offset-2 focus:outline-green-500 sm:text-sm/6"
                 >
                   <option>Pacific Standard Time</option>
                   <option>Eastern Standard Time</option>
@@ -161,7 +155,7 @@ const activeTab = ref('account')
         class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8"
       >
         <div>
-          <h2 class="text-base/7 font-semibold text-white">Change password</h2>
+          <h2 class="text-base/7 font-semibold">Change password</h2>
           <p class="mt-1 text-sm/6 text-gray-400">
             Update your password associated with your account.
           </p>
@@ -170,7 +164,7 @@ const activeTab = ref('account')
         <form class="md:col-span-2">
           <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
             <div class="col-span-full">
-              <label for="current-password" class="block text-sm/6 font-medium text-white"
+              <label for="current-password" class="block text-sm/6 font-medium"
                 >Current password</label
               >
               <div class="mt-2">
@@ -179,28 +173,26 @@ const activeTab = ref('account')
                   name="current_password"
                   type="password"
                   autocomplete="current-password"
-                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base outline-1 -outline-offset-1 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-green-500 sm:text-sm/6"
                 />
               </div>
             </div>
 
             <div class="col-span-full">
-              <label for="new-password" class="block text-sm/6 font-medium text-white"
-                >New password</label
-              >
+              <label for="new-password" class="block text-sm/6 font-medium">New password</label>
               <div class="mt-2">
                 <input
                   id="new-password"
                   name="new_password"
                   type="password"
                   autocomplete="new-password"
-                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base outline-1 -outline-offset-1 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-green-500 sm:text-sm/6"
                 />
               </div>
             </div>
 
             <div class="col-span-full">
-              <label for="confirm-password" class="block text-sm/6 font-medium text-white"
+              <label for="confirm-password" class="block text-sm/6 font-medium"
                 >Confirm password</label
               >
               <div class="mt-2">
@@ -209,7 +201,7 @@ const activeTab = ref('account')
                   name="confirm_password"
                   type="password"
                   autocomplete="new-password"
-                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                  class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base outline-1 -outline-offset-1 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-green-500 sm:text-sm/6"
                 />
               </div>
             </div>
@@ -225,40 +217,20 @@ const activeTab = ref('account')
         class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8"
       >
         <div>
-          <h2 class="text-base/7 font-semibold text-white">Log out</h2>
+          <h2 class="text-base/7 font-semibold">Log out</h2>
           <p class="mt-1 text-sm/6 text-gray-400">Sign out of your account on all devices.</p>
         </div>
 
         <form class="md:col-span-2">
           <div class="mt-8 flex">
             <PrimaryButton
+              @click="auth.logout()"
               type="submit"
-              class="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-400"
+              class="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold shadow-xs hover:bg-red-400"
             >
               Log out
             </PrimaryButton>
           </div>
-        </form>
-      </div>
-
-      <div
-        class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8"
-      >
-        <div>
-          <h2 class="text-base/7 font-semibold text-white">Delete account</h2>
-          <p class="mt-1 text-sm/6 text-gray-400">
-            No longer want to use our service? You can delete your account here. This action is not
-            reversible. All information related to this account will be deleted permanently.
-          </p>
-        </div>
-
-        <form class="flex items-start md:col-span-2">
-          <PrimaryButton
-            type="submit"
-            class="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-400"
-          >
-            Yes, delete my account
-          </PrimaryButton>
         </form>
       </div>
     </div>
