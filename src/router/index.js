@@ -45,10 +45,18 @@ const router = createRouter({
     {
       path: '/churches',
       name: 'churches',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('@/views/ChurchesView.vue'),
+    },
+    {
+      path: '/churches/:id/invite',
+      name: 'churches.invite',
+      component: () => import('@/views/churches/ChurchInvite.vue'),
+    },
+    {
+      path: '/join/:token',
+      alias: '/invitations/:token',
+      name: 'join',
+      component: () => import('@/views/JoinView.vue'),
     },
   ],
 })
@@ -56,7 +64,8 @@ const router = createRouter({
 router.beforeEach(async (to) => {
   const cookie = Cookies.get('XSRF-TOKEN')
   const auth = useAuthStore()
-  if (!cookie && to.name !== 'login') {
+
+  if (!auth.user?.id && to.name !== 'login') {
     auth.user = {}
     return { name: 'login' }
   }

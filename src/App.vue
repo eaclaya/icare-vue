@@ -11,5 +11,6 @@ import AuthLayout from '@/layouts/AuthLayout.vue'
 import GuestLayout from '@/layouts/GuestLayout.vue'
 
 const auth = useAuthStore()
+
 const layoutComponent = computed(() => (auth.user?.id ? AuthLayout : GuestLayout))
 </script>

@@ -15,9 +15,9 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    const token = Cookies.get('token')
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
+    const auth = useAuthStore()
+    if (auth.user?.current_affiliate_id) {
+      config.headers['X-TENANT'] = auth.user.current_affiliate_id
     }
 
     config.headers['X-Socket-ID'] = window?.Echo?.socketId()

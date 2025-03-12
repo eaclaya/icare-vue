@@ -1,6 +1,7 @@
 <script setup>
-import LoadingIcon from '@/components/LoadingIcon.vue'
 import { ref, computed, onMounted, inject } from 'vue'
+import LoadingIcon from '@/components/LoadingIcon.vue'
+import TableActions from '@/components/TableActions.vue'
 
 const data = ref([])
 const searchQuery = ref('')
@@ -148,11 +149,7 @@ const previousPage = () => {
             <td class="p-2">{{ row.members_count }}</td>
             <td class="p-2">
               <template v-if="row.actions.length > 0">
-                <select>
-                  <option v-for="action in row.actions" :value="action.id" :key="action.id">
-                    {{ action.label }}
-                  </option>
-                </select>
+                <TableActions :actions="row.actions" />
               </template>
             </td>
           </tr>

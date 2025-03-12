@@ -35,15 +35,43 @@ export const useAuthStore = defineStore(
       }
     }
 
+    const register = async (data) => {
+      try {
+        loading.value = true
+        const response = await axios.post(`/register`, data)
+        loading.value = false
+        user.value = response.data.user
+        return response
+      } catch (err) {
+        loading.value = false
+        if (err.response?.data?.errors) {
+          errors.value = err.response.data.errors
+        } else {
+          errors.value = err.response.data
+        }
+        throw err
+      }
+    }
+
     const logout = async () => {
       Cookies.remove('XSRF-TOKEN')
       user.value = {}
       router.push('/login')
     }
 
-    return { user, login, loading, errors, logout }
+    return { user, login, loading, errors, logout, register }
   },
   {
     persist: true,
+    paths: ['user'], // Only persist the user data
+    // Or use the hydrate hook to reset specific values
+    hydrate: (storeState) => {
+      // Reset these values on hydration regardless of what's in localStorage
+      storeState.errors = {}
+      storeState.loading = false
+
+      // Keep user data from localStorage
+      return storeState
+    },
   },
 )
