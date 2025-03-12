@@ -1,8 +1,9 @@
 <template>
   <div class="app-container">
     <main class="main-content flex flex-col">
-      <div class="flex justify-between">
+      <div class="flex justify-evenly">
         <SwitchTheme />
+        <SwitchTenant />
         <router-link to="/profile">
           <button class="p-2 cursor-pointer">
             <UserCircleIcon class="w-6 h-6" />
@@ -31,6 +32,7 @@
 </template>
 
 <script setup>
+import SwitchTenant from '@/components/SwitchTenant.vue'
 import SwitchTheme from '@/components/SwitchTheme.vue'
 import { UserCircleIcon } from '@heroicons/vue/24/outline'
 </script>

@@ -62,16 +62,9 @@ export const useAuthStore = defineStore(
     return { user, login, loading, errors, logout, register }
   },
   {
-    persist: true,
-    paths: ['user'], // Only persist the user data
-    // Or use the hydrate hook to reset specific values
-    hydrate: (storeState) => {
-      // Reset these values on hydration regardless of what's in localStorage
-      storeState.errors = {}
-      storeState.loading = false
-
-      // Keep user data from localStorage
-      return storeState
+    persist: {
+      storage: localStorage,
+      pick: ['user'],
     },
   },
 )
