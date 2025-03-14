@@ -126,16 +126,14 @@ const activeTab = ref('account')
             </div>
 
             <div class="col-span-full">
-              <label for="timezone" class="block text-sm/6 font-medium">Timezone</label>
+              <label for="role" class="block text-sm/6 font-medium">Roles</label>
               <div class="mt-2 grid grid-cols-1">
                 <select
-                  id="timezone"
-                  name="timezone"
+                  id="role"
+                  name="role"
                   class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base outline-1 -outline-offset-1 *:bg-gray-800 focus:outline-2 focus:-outline-offset-2 focus:outline-green-500 sm:text-sm/6"
                 >
-                  <option>Pacific Standard Time</option>
-                  <option>Eastern Standard Time</option>
-                  <option>Greenwich Mean Time</option>
+                  <option v-for="role in auth.user.roles" :key="role">{{ role }}</option>
                 </select>
                 <ChevronDownIcon
                   class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-400 sm:size-4"

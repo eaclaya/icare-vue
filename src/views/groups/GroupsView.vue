@@ -1,5 +1,10 @@
 <script setup>
+import BaseModal from '@/components/BaseModal.vue'
+import GroupForm from '@/components/groups/GroupForm.vue'
 import LoadingIcon from '@/components/LoadingIcon.vue'
+import PrimaryButton from '@/components/PrimaryButton.vue'
+import TableActions from '@/components/TableActions.vue'
+import router from '@/router'
 import { ref, computed, onMounted, inject } from 'vue'
 
 const data = ref([])
@@ -13,22 +18,24 @@ const distance = ref(1)
 const location = ref({ lat: null, lng: null })
 const loading = ref(false)
 const axios = inject('axios')
+const showCreateGroupModal = ref(false)
 
 const columns = [
   { key: 'name', label: 'Name', sortable: true },
+  { key: 'type', label: 'Type' },
   { key: 'city', label: 'City' },
   { key: 'state', label: 'State' },
   { key: 'zip', label: 'ZIP' },
-  { key: 'lat', label: 'Lat' },
-  { key: 'lng', label: 'Lng' },
-  { key: 'members_count', label: 'Members' },
+  // { key: 'lat', label: 'Lat' },
+  // { key: 'lng', label: 'Lng' },
+  // { key: 'members_count', label: 'Members' },
   { key: 'actions', label: 'Actions' },
 ]
 
 const fetchData = async () => {
   try {
     loading.value = true
-    const response = await axios.get('/communities', {
+    const response = await axios.get('/groups', {
       params: {
         q: searchQuery.value,
         sort: sortKey.value,
@@ -75,6 +82,10 @@ const previousPage = () => {
     fetchData()
   }
 }
+
+const redirectToGroup = (group) => {
+  router.push({ name: 'groups.edit', params: { id: group.id } })
+}
 </script>
 <template>
   <div class="p-4 w-full flex flex-col gap-4">
@@ -104,7 +115,7 @@ const previousPage = () => {
           />
         </div>
       </div> -->
-      <div>
+      <div class="flex items-center gap-2">
         <input
           v-model="searchQuery"
           @change="fetchData"
@@ -112,6 +123,10 @@ const previousPage = () => {
           placeholder="Search..."
           class="p-2 border rounded w-full mb-4"
         />
+
+        <PrimaryButton @click="showCreateGroupModal = true" class="min-w-[100px]">
+          New Group
+        </PrimaryButton>
       </div>
     </div>
     <table class="w-full border-collapse border border-gray-300">
@@ -138,19 +153,16 @@ const previousPage = () => {
         <template v-else>
           <tr v-for="row in data" :key="row.id" class="border-b">
             <td class="p-2">{{ row.name }}</td>
-            <td class="p-2">{{ row.location.city }}</td>
-            <td class="p-2">{{ row.location.state }}</td>
-            <td class="p-2">{{ row.location.zip }}</td>
-            <td class="p-2">{{ row.location.lat }}</td>
+            <td class="p-2">{{ row.group_type.name }}</td>
+            <td class="p-2">{{ row.groupable.location.city }}</td>
+            <td class="p-2">{{ row.groupable.location.state }}</td>
+            <td class="p-2">{{ row.groupable.location.zip }}</td>
+            <!-- <td class="p-2">{{ row.location.lat }}</td>
             <td class="p-2">{{ row.location.lng }}</td>
-            <td class="p-2">{{ row.members_count }}</td>
+            <td class="p-2">{{ row.members_count }}</td> -->
             <td class="p-2">
               <template v-if="row.actions.length > 0">
-                <select>
-                  <option v-for="action in row.actions" :value="action.id" :key="action.id">
-                    {{ action.label }}
-                  </option>
-                </select>
+                <TableActions :actions="row.actions" />
               </template>
             </td>
           </tr>
@@ -169,4 +181,8 @@ const previousPage = () => {
       <button @click="nextPage" class="p-2 bg-gray-300 text-black rounded">Next</button>
     </div>
   </div>
+
+  <BaseModal :show="showCreateGroupModal" @close="showCreateGroupModal = false" classes="max-w-2xl">
+    <GroupForm @save="redirectToGroup" @close="showCreateGroupModal = false" />
+  </BaseModal>
 </template>

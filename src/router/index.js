@@ -33,9 +33,29 @@ const router = createRouter({
       component: () => import('@/views/MembersView.vue'),
     },
     {
-      path: '/communities',
-      name: 'communities',
-      component: () => import('@/views/CommunitiesView.vue'),
+      path: '/teams',
+      name: 'teams.index',
+      component: () => import('@/views/teams/TeamsView.vue'),
+    },
+    {
+      path: '/teams/:id/edit',
+      name: 'teams.edit',
+      component: () => import('@/views/teams/TeamEdit.vue'),
+    },
+    {
+      path: '/groups',
+      name: 'groups',
+      component: () => import('@/views/groups/GroupsView.vue'),
+    },
+    {
+      path: '/groups/create',
+      name: 'groups.create',
+      component: () => import('@/views/groups/GroupEdit.vue'),
+    },
+    {
+      path: '/groups/:id/edit',
+      name: 'groups.edit',
+      component: () => import('@/views/groups/GroupEdit.vue'),
     },
     {
       path: '/profile',
@@ -46,6 +66,11 @@ const router = createRouter({
       path: '/churches',
       name: 'churches',
       component: () => import('@/views/ChurchesView.vue'),
+    },
+    {
+      path: '/churches/:id/edit',
+      name: 'churches.edit',
+      component: () => import('@/views/churches/ChurchEdit.vue'),
     },
     {
       path: '/churches/:id/invite',

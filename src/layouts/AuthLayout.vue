@@ -1,9 +1,8 @@
 <template>
   <div class="app-container">
     <main class="main-content flex flex-col">
-      <div class="flex justify-evenly">
+      <div class="flex justify-between">
         <SwitchTheme />
-        <SwitchTenant />
         <router-link to="/profile">
           <button class="p-2 cursor-pointer">
             <UserCircleIcon class="w-6 h-6" />
@@ -24,15 +23,17 @@
       <router-link to="/churches" class="flex flex-1 justify-center">
         <button type="button" class="py-4">Churches</button>
       </router-link>
-      <router-link to="/communities" class="flex flex-1 justify-center">
-        <button type="button" class="py-4">Communities</button>
+      <router-link to="/teams" class="flex flex-1 justify-center">
+        <button type="button" class="py-4">Teams</button>
+      </router-link>
+      <router-link to="/groups" class="flex flex-1 justify-center">
+        <button type="button" class="py-4">Groups</button>
       </router-link>
     </nav>
   </div>
 </template>
 
 <script setup>
-import SwitchTenant from '@/components/SwitchTenant.vue'
 import SwitchTheme from '@/components/SwitchTheme.vue'
 import { UserCircleIcon } from '@heroicons/vue/24/outline'
 </script>

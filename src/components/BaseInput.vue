@@ -9,7 +9,7 @@ defineProps({
 })
 const model = defineModel({
   type: String,
-  default: true,
+  default: '',
 })
 
 const input = ref(null)
@@ -26,7 +26,7 @@ defineExpose({ focus: () => input.value.focus() })
 <template>
   <input
     :type="type"
-    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
+    class="block w-full rounded-md border-gray-300 dark:border-white px-3 py-1.5 text-base text-gray-900 dark:text-white outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
     v-model="model"
     ref="input"
   />

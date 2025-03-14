@@ -46,7 +46,7 @@
       /></PrimaryButton>
     </template>
 
-    <BaseModal :show="showModal" @close="showModal = false" :full="true">
+    <BaseModal :show="showModal" @close="showModal = false">
       <ChatUsersList @startChat="newChat" />
     </BaseModal>
   </div>

@@ -1,9 +1,7 @@
 <template>
-  <div
-    class="mx-auto max-w-lg flex flex-col h-[500px] border border-gray-300 rounded-lg overflow-hidden"
-  >
+  <div class="mx-auto max-w-lg flex flex-col h-[500px] rounded-lg overflow-hidden">
     <!-- Search Bar (Fixed) -->
-    <div class="p-3 bg-white shadow">
+    <div class="p-3">
       <template v-if="form.is_group"
         ><BaseInput v-model="form.name" placeholder="Group name"
       /></template>
@@ -25,7 +23,9 @@
               <img class="size-10 rounded-full" :src="user.profile.url_avatar" alt="" />
             </div>
             <div class="min-w-0 flex-1">
-              <p class="truncate text-sm font-medium text-gray-900">{{ user.name }}</p>
+              <p class="truncate text-sm font-medium text-gray-900 dark:text-white">
+                {{ user.name }}
+              </p>
               <p class="truncate text-sm font-medium text-gray-500">{{ user.email }}</p>
             </div>
           </div>
@@ -44,7 +44,7 @@
               <img class="size-10 rounded-full" :src="user.profile.url_avatar" alt="" />
             </div>
             <div class="min-w-0 flex-1">
-              <p class="truncate text-sm font-medium text-gray-900">{{ user.name }}</p>
+              <p class="truncate text-sm font-medium">{{ user.name }}</p>
               <p class="truncate text-sm font-medium text-gray-500">{{ user.email }}</p>
             </div>
           </div>

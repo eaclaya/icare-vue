@@ -2,7 +2,7 @@
   <Menu as="div" class="relative inline-block text-left">
     <div>
       <MenuButton
-        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 cursor-pointer"
+        class="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-900 cursor-pointer"
       >
         <EllipsisHorizontalIcon class="-mr-1 size-5 text-gray-400" aria-hidden="true" />
       </MenuButton>
@@ -17,14 +17,14 @@
       leave-to-class="transform opacity-0 scale-95"
     >
       <MenuItems
-        class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white ring-1 shadow-lg ring-black/5 focus:outline-hidden"
+        class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-gray-900 ring-1 shadow-lg ring-black/5 focus:outline-hidden"
       >
         <div class="py-1">
           <MenuItem v-for="action in actions" :key="action.id">
             <button
               type="button"
               @click="handleClick(action)"
-              class="block px-4 py-2 text-sm w-full hover:bg-gray-100 text-left cursor-pointer"
+              class="block px-4 py-2 text-sm w-full hover:bg-gray-100 dark:hover:bg-gray-800 text-left cursor-pointer"
             >
               {{ action.label }}
             </button>
