@@ -57,7 +57,7 @@ const removeGroup = async (group) => {
 const addMember = async (member) => {
   showGroupMemberListModal.value = false
   try {
-    let roleName = prompt('Enter member role')
+    let roleName = prompt('Enter member role (e.g Volunteer, Team Leader):')
     roleName = ['Volunteer', 'Team Leader'].includes(roleName) ? roleName : 'Volunteer'
     const response = await axios.post(`/teams/${teamId}/members`, {
       member_id: member.id,
