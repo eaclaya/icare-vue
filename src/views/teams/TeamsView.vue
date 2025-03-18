@@ -1,5 +1,6 @@
 <script setup>
 import LoadingIcon from '@/components/LoadingIcon.vue'
+import PrimaryButton from '@/components/PrimaryButton.vue'
 import TableActions from '@/components/TableActions.vue'
 import { ref, computed, onMounted, inject } from 'vue'
 
@@ -79,10 +80,10 @@ const previousPage = () => {
 </script>
 <template>
   <div class="p-4 w-full flex flex-col gap-4">
-    <div class="flex items-center justify-end">
+    <div class="flex items-center justify-between">
       <!-- Disable geo search filters for now -->
-      <!-- <div class="flex items-center gap-2">
-        <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2">
+        <!-- <div class="flex items-center gap-2">
           <label for="">Radius/KM</label>
           <select class="border p-2 rounded-md" v-model="distance" @change="fetchData">
             <option v-for="value in distances" :value="value" :key="value">{{ value }}</option>
@@ -103,8 +104,8 @@ const previousPage = () => {
             placeholder="Longitude"
             v-model="location.lng"
           />
-        </div>
-      </div> -->
+        </div> -->
+      </div>
       <div>
         <input
           v-model="searchQuery"

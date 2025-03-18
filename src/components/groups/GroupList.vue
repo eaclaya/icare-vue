@@ -9,7 +9,9 @@
         <p class="text-sm/6 font-bold py-4">
           <router-link :to="{ name: 'groups.edit', params: { id: group.id } }"
             >{{ group.name }} -
-            <span class="text-white">{{ group.group_type?.name }}</span></router-link
+            <span class="text-gray-800 dark:text-white">{{
+              group.group_type?.name
+            }}</span></router-link
           >
         </p>
       </div>

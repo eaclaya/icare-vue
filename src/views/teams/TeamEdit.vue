@@ -47,7 +47,7 @@ const addGroup = async (group) => {
 const removeGroup = async (group) => {
   showGroupListModal.value = false
   try {
-    const response = await axios.delete(`/teams/${teamId}/groups`, { group_id: group.id })
+    const response = await axios.delete(`/teams/${teamId}/groups/${group.id}`)
     team.value = response.data.team
   } catch (error) {
     console.error('Error adding group:', error)
@@ -66,6 +66,16 @@ const addMember = async (member) => {
     team.value = response.data.team
   } catch (error) {
     console.error('Error adding member:', error)
+  }
+}
+
+const removeMember = async (member) => {
+  showGroupMemberListModal.value = false
+  try {
+    const response = await axios.delete(`/teams/${teamId}/members/${member.id}`)
+    team.value = response.data.team
+  } catch (error) {
+    console.error('Error adding group:', error)
   }
 }
 
@@ -124,7 +134,7 @@ onMounted(() => {
             <PrimaryButton @click="showGroupMemberListModal = true">Add member</PrimaryButton>
           </div>
           <template v-if="team?.members">
-            <MemberListCard :members="team.members" />
+            <MemberListCard :members="team.members" @remove="removeMember" />
           </template>
         </div>
       </section>

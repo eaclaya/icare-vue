@@ -24,17 +24,17 @@
               :href="`mailto:${member.email}`"
               class="cursor-pointer relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900 dark:text-white"
             >
-              <EnvelopeIcon class="size-5 text-gray-400 dark:text-white" aria-hidden="true" />
-              Email
+              <PencilIcon class="size-5 text-gray-400 dark:text-white" aria-hidden="true" />
+              Edit
             </button>
           </div>
           <div class="-ml-px flex w-0 flex-1">
             <button
-              :href="`tel:${member.phone}`"
+              @click="emit('remove', member)"
               class="cursor-pointer relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900 dark:text-white"
             >
-              <PhoneIcon class="size-5 text-gray-400 dark:text-white" aria-hidden="true" />
-              Call
+              <TrashIcon class="size-5 text-gray-400 dark:text-white" aria-hidden="true" />
+              Remove
             </button>
           </div>
         </div>
@@ -44,7 +44,7 @@
 </template>
 
 <script setup>
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/vue/20/solid'
+import { PencilIcon, TrashIcon } from '@heroicons/vue/24/outline'
 
 defineProps({
   members: {
@@ -52,4 +52,6 @@ defineProps({
     required: true,
   },
 })
+
+const emit = defineEmits(['remove'])
 </script>

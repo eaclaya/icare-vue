@@ -4,7 +4,7 @@
   >
     <!-- Search Bar (Fixed) -->
     <div class="p-3 bg-white shadow">
-      <BaseInput v-model="search" placeholder="Search..." />
+      <BaseInput v-model="search" placeholder="Search..." @change="fetchData" />
     </div>
 
     <!-- Scrollable List -->
@@ -44,7 +44,11 @@ const auth = useAuthStore()
 const fetchData = async () => {
   try {
     loading.value = true
-    const response = await axios.get('/groups')
+    const response = await axios.get('/groups', {
+      params: {
+        q: search.value,
+      },
+    })
     groups.value = response.data.data
     console.log(response.data)
     loading.value = false
